@@ -3,15 +3,33 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function PersonalBusinessSite() {
-  const Button = ({ children, className, href }) => (
-    <a href={href} className={`inline-flex items-center justify-center px-6 py-3 text-lg font-medium rounded-2xl ${className}`}>{children}</a>
+  type ButtonProps = {
+    children: React.ReactNode;
+    className?: string;
+    href: string;
+  };
+
+  const Button = ({ children, className, href }: ButtonProps) => (
+    <a href={href} className={`inline-flex items-center justify-center px-6 py-3 text-lg font-medium rounded-2xl ${className}`}>
+      {children}
+    </a>
   );
 
-  const Card = ({ children }) => (
-    <div className="rounded-2xl shadow-xl bg-white/80 backdrop-blur-lg border border-amber-200 p-6">{children}</div>
+  type CardProps = {
+    children: React.ReactNode;
+  };
+
+  const Card = ({ children }: CardProps) => (
+    <div className="rounded-2xl shadow-xl bg-white/80 backdrop-blur-lg border border-amber-200 p-6">
+      {children}
+    </div>
   );
 
-  const CardContent = ({ children }) => <div>{children}</div>;
+  type CardContentProps = {
+    children: React.ReactNode;
+  };
+
+  const CardContent = ({ children }: CardContentProps) => <div>{children}</div>;
 
   const MailIcon = () => <span className="mr-2">📧</span>;
   const PhoneIcon = () => <span className="mr-2">📞</span>;
